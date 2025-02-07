@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import "./globals.css";
-import { ClerkProvider } from '@clerk/nextjs';
+import { ClerkProvider } from "@clerk/nextjs";
+import Header from "@/components/Header";
 
 const roboto = Roboto({
   variable: "--font-roboto",
@@ -19,11 +20,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (  <ClerkProvider>
-    
-    <html lang="en">
-      <body className={roboto.className}>{children}</body>
-    </html>
+  return (
+    <ClerkProvider>
+      <html lang="en">
+        <body className={roboto.className}>
+          <Header />
+
+          <main className="container">{children}</main>
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
