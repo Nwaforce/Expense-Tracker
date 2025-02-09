@@ -1,6 +1,6 @@
 import { currentUser } from '@clerk/nextjs/server';
 import Guest from '@/components/Guest';
-// import AddTransaction from '@/components/AddTransaction';
+import AddTransaction from '@/components/AddTransaction';
 // import Balance from '@/components/Balance';
 // import IncomeExpense from '@/components/IncomeExpense';
 // import TransactionList from '@/components/TransactionList';
@@ -15,10 +15,10 @@ const HomePage = async () => {
   return (
     <main>
       <h2>Welcome, {user.firstName}</h2>
-      {/* <Balance />
-      <IncomeExpense />
+      {/* <Balance /> */}
+      {/* <IncomeExpense /> */}
       <AddTransaction />
-      <TransactionList /> */}
+      {/* <TransactionList /> */}
     </main>
   );
 };
