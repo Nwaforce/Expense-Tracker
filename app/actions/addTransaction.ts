@@ -1,7 +1,7 @@
-'use server';
-import { auth } from '@clerk/nextjs/server';
-import { db } from '@/lib/db';
-import { revalidatePath } from 'next/cache';
+"use server";
+import { auth } from "@clerk/nextjs/server";
+import { db } from "@/lib/db";
+import { revalidatePath } from "next/cache";
 
 interface TransactionData {
   text: string;
@@ -14,12 +14,12 @@ interface TransactionResult {
 }
 
 async function addTransaction(formData: FormData): Promise<TransactionResult> {
-  const textValue = formData.get('text');
-  const amountValue = formData.get('amount');
+  const textValue = formData.get("text");
+  const amountValue = formData.get("amount");
 
   // Check for input values
-  if (!textValue || textValue === '' || !amountValue) {
-    return { error: 'Text or amount is missing' };
+  if (!textValue || textValue === "" || !amountValue) {
+    return { error: "Text or amount is missing" };
   }
 
   const text: string = textValue.toString(); // Ensure text is a string
@@ -29,8 +29,8 @@ async function addTransaction(formData: FormData): Promise<TransactionResult> {
   const { userId } = auth();
 
   // Check for user
-  if (!userId) {   
-    return { error: 'User not found' };
+  if (!userId) {
+    return { error: "User not found" };
   }
 
   try {
@@ -42,11 +42,11 @@ async function addTransaction(formData: FormData): Promise<TransactionResult> {
       },
     });
 
-    revalidatePath('/');
+    revalidatePath("/");
 
     return { data: transactionData };
   } catch (error) {
-    return { error: 'Transaction not added' };
+    return { error: "Transaction not added" };
   }
 }
 

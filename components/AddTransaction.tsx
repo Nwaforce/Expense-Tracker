@@ -1,51 +1,8 @@
- "use client";
+"use client";
 
-// import addTransaction from "@/app/actions/addTransaction";
-
-// const AddTransaction = () => {
-//   const clientAction = async (formData: FormData) => {
-//     const result = await addTransaction(formData)
-//   };
-
-//   return <>
-//   <h3>Add Transaction</h3>
-//   <form action={clientAction}>
-//      <div className="form-control">
-//         <label htmlFor="text">Text</label>
-//         <input type="text" id="text" name="text" 
-//         placeholder="Enter Text... " />
-//      </div>
-//      <div className='form-control'>
-//           <label htmlFor='amount'>
-//             Amount <br /> (negative - expense, positive - income)
-//           </label>
-//           <input
-//             type='number'
-//             name='amount'
-//             id='amount'
-//             placeholder='Enter amount...'
-//             step='0.01'
-//           />
-//         </div>
-//         <button className='btn'>Add Transaction</button>
-//   </form>
-   
-  
-//   </>;
-// };
-
-// export default AddTransaction;
-
-
-
-
-
-
-
-
-import { useRef } from 'react';
-import addTransaction from '@/app/actions/addTransaction';
-import { toast } from 'react-toastify';
+import { useRef } from "react";
+import addTransaction from "@/app/actions/addTransaction";
+import { toast } from "react-toastify";
 
 const AddTransaction = () => {
   const formRef = useRef<HTMLFormElement>(null);
@@ -56,7 +13,7 @@ const AddTransaction = () => {
     if (error) {
       toast.error(error);
     } else {
-      toast.success('Transaction added');
+      toast.success("Transaction added");
       formRef.current?.reset();
     }
   };
@@ -65,28 +22,28 @@ const AddTransaction = () => {
     <>
       <h3>Add transaction</h3>
       <form ref={formRef} action={clientAction}>
-        <div className='form-control'>
-          <label htmlFor='text'>Text</label>
+        <div className="form-control">
+          <label htmlFor="text">Text</label>
           <input
-            type='text'
-            id='text'
-            name='text'
-            placeholder='Enter text...'
+            type="text"
+            id="text"
+            name="text"
+            placeholder="Enter text..."
           />
         </div>
-        <div className='form-control'>
-          <label htmlFor='amount'>
+        <div className="form-control">
+          <label htmlFor="amount">
             Amount <br /> (negative - expense, positive - income)
           </label>
           <input
-            type='number'
-            name='amount'
-            id='amount'
-            placeholder='Enter amount...'
-            step='0.01'
+            type="number"
+            name="amount"
+            id="amount"
+            placeholder="Enter amount..."
+            step="0.01"
           />
         </div>
-        <button className='btn'>Add transaction</button>
+        <button className="btn">Add transaction</button>
       </form>
     </>
   );
