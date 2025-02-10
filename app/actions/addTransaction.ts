@@ -29,7 +29,7 @@ async function addTransaction(formData: FormData): Promise<TransactionResult> {
   const { userId } = auth();
 
   // Check for user
-  if (!userId) {
+  if (!userId) {   
     return { error: 'User not found' };
   }
 
