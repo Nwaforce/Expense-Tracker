@@ -7,7 +7,8 @@ async function getIncomeExpense(): Promise<{
   expense?: number;
   error?: string;
 }> {
-  const { userId } = auth();
+//   const { userId } = auth();
+const { userId } = await auth();
 
   if (!userId) {
     return { error: 'User not found' };
