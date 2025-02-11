@@ -28,7 +28,7 @@ async function addTransaction(formData: FormData): Promise<TransactionResult> {
   // Get logged in user
   // const { userId } = auth();
   const { userId } = await auth();
-  
+
   // Check for user
   if (!userId) {
     return { error: "User not found" };
