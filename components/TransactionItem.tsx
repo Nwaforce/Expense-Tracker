@@ -1,6 +1,6 @@
 'use client';
 import { Transaction } from '@/types/Transaction';
-import { addCommas } from '@/lib/utils';
+import { addCommas } from '@/lib/Utils';
 import { toast } from 'react-toastify';
 import deleteTransaction from '@/app/actions/deleteTransaction';
 
