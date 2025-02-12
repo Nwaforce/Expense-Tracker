@@ -1,17 +1,17 @@
-'use server';
-import { db } from '@/lib/db';
-import { auth } from '@clerk/nextjs/server';
-import { revalidatePath } from 'next/cache';
+"use server";
+import { db } from "@/lib/db";
+import { auth } from "@clerk/nextjs/server";
+import { revalidatePath } from "next/cache";
 
 async function deleteTransaction(transactionId: string): Promise<{
   message?: string;
   error?: string;
 }> {
-//   const { userId } = auth();
-const { userId } = await auth();
+  //   const { userId } = auth();
+  const { userId } = await auth();
 
   if (!userId) {
-    return { error: 'User not found' };
+    return { error: "User not found" };
   }
 
   try {
@@ -22,11 +22,11 @@ const { userId } = await auth();
       },
     });
 
-    revalidatePath('/');
+    revalidatePath("/");
 
-    return { message: 'Transaction deleted' };
+    return { message: "Transaction deleted" };
   } catch (error) {
-    return { error: 'Database error' };
+    return { error: "Database error" };
   }
 }
 
